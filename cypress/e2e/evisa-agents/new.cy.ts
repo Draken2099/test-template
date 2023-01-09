@@ -1,0 +1,38 @@
+describe('New Application', () => {
+    const time = 1500
+    beforeEach(() => {
+        cy.visit('http://172.25.250.11:3000/auth/sign-in')
+    })
+    it('login success', () => {
+        cy.log('Fill Authentication Data')
+        cy.get('input[name=username]', { timeout: 20_000 }).type('hackerowen', { delay: 100 })
+        cy.wait(time)
+        cy.get('input[name=password]', { timeout: 20_000 }).type('12345678', { delay: 100 })
+        cy.wait(time)
+        cy.get('input[type="checkbox"]').check()
+        cy.wait(time)
+        cy.get('button').click()
+        cy.wait(2000)
+        cy.get('.MuiList-root > :nth-child(2) > .MuiButtonBase-root').click()
+        cy.wait(time)
+        cy.get('.css-10g8p88-MuiFormControl-root > .MuiInputBase-root > .MuiSelect-select').click()
+        cy.wait(time)
+        cy.get('.MuiList-root > [tabindex="-1"]')
+        cy.wait(time)
+        cy.get('.MuiList-root > [tabindex="-2"]')
+        cy.wait(time)
+        cy.get('.css-1nrlq1o-MuiFormControl-root > .MuiInputBase-root > .MuiSelect-select').click()
+        cy.get('[data-value="6"]')
+        cy.wait(time)
+        cy.get('[data-value="4"]')
+        cy.wait(time)
+        cy.get('[data-value="3"]')
+        cy.wait(time)
+        cy.get(':nth-child(2) > .MuiPaper-root > .MuiCardContent-root > .css-1svu6jh-MuiGrid-root > .css-15d7oug-MuiStack-root > .MuiButton-outlined').click()
+        cy.wait(time)
+        cy.get(':nth-child(3) > .MuiButtonBase-root').click()
+        cy.wait(time)
+    })
+})
+
+export { }
